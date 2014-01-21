@@ -84,7 +84,7 @@ class MeasurementParser:
                     html = response.read()
                     #TODO: Check response code with get_code()
                     soup = bs4.BeautifulSoup(html, "html.parser")
-                    print(soup)
+                    #print(soup)
                     #TODO: Station Name could have special characters like german umlauts. Can
                     #      sqlite safely operate with them?
                     #TODO: Maybe better to find div with id DatenContainer and use the html returned
@@ -93,7 +93,7 @@ class MeasurementParser:
                     self.log.info("Station Name: " + station_name.get_text())
                     measurementdatetime = soup.find("div", id="Datum")
                     valuestable = soup.find("table", id="WerteTabelle")
-                    print(valuestable.get_text())
+                    #print(valuestable.get_text())
                     # find all components the station is measuring. This components define the table
                     # columns in the database. additionally the parent object is the table row. we
                     # traverse all siblings in this row later to get to the current reading.
