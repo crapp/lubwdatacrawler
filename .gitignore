@@ -1,7 +1,10 @@
+#Ignore python compiled files
 *.pyc
 
+#Ignore databases located in the project directory
 *.sqlite
 
+#Ignore pycharme project settings
 .idea/
 
 
