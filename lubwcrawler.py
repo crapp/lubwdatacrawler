@@ -58,16 +58,16 @@ def main():
     #parse the arguments, this throws an exception if something goes wrong
     args = parser.parse_args()
 
-    #get the root logger
     formatter = logging.Formatter('[%(asctime)s] %(levelname)s: %(message)s')
 
     if args.verbose:
+	#get the root logger
         root = logging.getLogger()
         #get a streamhandler for stdout
         ch = logging.StreamHandler(sys.stdout)
         ch.setLevel(logging.DEBUG)
         #create a new formatter for the streamhandler
-        formatter = logging.Formatter('[%(asctime)s] %(levelname)s: %(message)s')
+        #formatter = logging.Formatter('[%(asctime)s] %(levelname)s: %(message)s')
         ch.setFormatter(formatter)
         #set the
         root.addHandler(ch)
