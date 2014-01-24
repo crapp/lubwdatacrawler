@@ -10,7 +10,7 @@ Requirements
 ------------
 
 * Python >= 3.2
-* [BeautifulSoup](http://www.crummy.com/software/BeautifulSoup/) >= 4
+* [BeautifulSoup](http://www.crummy.com/software/BeautifulSoup/) >= 4.1.2
 
 Installation
 ------------
@@ -76,5 +76,5 @@ License
 
 Copyright
 ---------
-
-(C) 2013, 2014 Christian Rapp (crapp) crappbytes<at>gmail<dot>com
+<!--nospam-->
+(C) 2013, 2014 Christian Rapp (crapp) crappbytes[at]gmail[dot]com
