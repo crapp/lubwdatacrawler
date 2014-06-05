@@ -61,7 +61,7 @@ def main():
     formatter = logging.Formatter('[%(asctime)s] %(levelname)s: %(message)s')
 
     if args.verbose:
-	#get the root logger
+    #get the root logger
         root = logging.getLogger()
         #get a streamhandler for stdout
         ch = logging.StreamHandler(sys.stdout)

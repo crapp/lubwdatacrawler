@@ -46,7 +46,7 @@ class SQliteConnector:
         The database will be opened and closed automatically
 
         Args:
-            table_name: The name of the table we should data into. If the Table does not exist it
+            table_name: The name of the table we will use. If the Table does not exist it
                         will be created
             comp_values_map: A dictionary of components as keys and a list of values.
         """

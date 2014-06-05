@@ -121,8 +121,11 @@ class MeasurementParser:
                         datalist.append(measurementdatetime.get_text(strip=True))
                         comp_values_map[c.get_text(strip=True)] = datalist
                     #print(components)
+                    # get a table name. replace all whitespaces with underscores and only use the
+                    # first 5 characters.
+                    table_name = station_name.get_text(strip=True).replace(" ", "_")[:5]
                     #all data is collected now tell the database to do its job
-                    self.db.insert(station_name.get_text(strip=True), comp_values_map)
+                    self.db.insert(table_name, comp_values_map)
                 except urllib.error.URLError as ex:
                     self.log.error("Can not parse URL: " + url + "\n" + str(ex))
                 except AttributeError as ex:
