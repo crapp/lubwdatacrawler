@@ -35,7 +35,8 @@ class SQliteConnector:
     def __init__(self, args):
         """Inits a SQliteConnector Object"""
         self.args = args
-        self.log = logging.getLogger("my_logger")
+        #self.log = logging.getLogger("my_logger")
+        self.log = logging.getLogger(__name__)
         self.log.debug("Init SQLiteConnector Object")
 
         self.conn = sqlite3.Connection

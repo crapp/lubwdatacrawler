@@ -42,7 +42,8 @@ class MeasurementParser:
         self.args = args
         self.urllist = []
         self.crawl = True
-        self.log = logging.getLogger("my_logger")
+        #self.log = logging.getLogger("my_logger")
+        self.log = logging.getLogger(__name__)
         self.db = db
 
         self._parseurls()

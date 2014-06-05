@@ -44,7 +44,7 @@ def main():
     signal.signal(signal.SIGINT, _signal_handler)
     #build up our command line parser based on argparse
     parser = argp.ArgumentParser(description="LUBW Data Crawler")
-    parser.add_argument('--version', action='version', version='%(prog)s 0.1')
+    parser.add_argument('--version', action='version', version='%(prog)s 0.1.1')
     parser.add_argument("-d", "--database", default="lubw_crawler.sqlite",
                         help="SQlite Database file to use. Will be generated if it does not exist")
     parser.add_argument("-t", "--parsetime", type=int,
@@ -58,28 +58,24 @@ def main():
     #parse the arguments, this throws an exception if something goes wrong
     args = parser.parse_args()
 
-    formatter = logging.Formatter('[%(asctime)s] %(levelname)s: %(message)s')
+    #formatter = logging.Formatter('[%(asctime)s] %(levelname)s: %(message)s')
+
+    logging.basicConfig(filename='lubwcrawler.log',
+                        format='[%(asctime)s] %(levelname)s: %(message)s',
+                        level=logging.DEBUG)
 
     if args.verbose:
     #get the root logger
         root = logging.getLogger()
-        #get a streamhandler for stdout
         ch = logging.StreamHandler(sys.stdout)
-        ch.setLevel(logging.DEBUG)
-        #create a new formatter for the streamhandler
-        #formatter = logging.Formatter('[%(asctime)s] %(levelname)s: %(message)s')
+        #ch.setLevel(logging.DEBUG)
+        formatter = logging.Formatter('[%(asctime)s] %(levelname)s: %(message)s')
         ch.setFormatter(formatter)
-        #set the
         root.addHandler(ch)
-        log = logging.getLogger("my_logger")
-        log.setLevel(logging.DEBUG)
-    else:
-        ch = logging.StreamHandler()
-        ch.setFormatter(formatter)
-        log = logging.getLogger("my_logger")
-        log.addHandler(ch)
 
-    log.info("LUBW Data Crawler 0.1 starting...")
+    log = logging.getLogger(__name__)
+
+    log.info("LUBW Data Crawler 0.1.1 starting...")
 
     db = SQliteConnector(args)
     lubwparser = MeasurementParser(args, db)
